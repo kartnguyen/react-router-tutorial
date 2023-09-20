@@ -43,12 +43,7 @@ export const ShoppingCartReducer = (state, action) => {
 };
 
 const innitialState = {
-  products: [
-    {
-      productId: 1,
-      quantity: 1,
-    },
-  ],
+  products: [],
 };
 export const ShoppingcartProvider = ({ children }) => {
   const { findProductById } = useAppcontext();
@@ -72,7 +67,7 @@ export const ShoppingcartProvider = ({ children }) => {
     product: findProductById(item.productId),
     quantity: item.quantity,
   }));
-  
+
   return (
     <ShoppingcartContext.Provider
       value={{ ...state, handleAddItem, totalItems, handleRemoveItem, items }}
